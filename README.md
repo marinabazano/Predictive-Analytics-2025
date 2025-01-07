@@ -1,8 +1,10 @@
 # Predictive-Analytics-2025
 
-## Students
-
 ## Article Selection
+
+Original article: Ramirez, P., Reade, J.J., Singleton, C., Betting on a buzz: Mispricing and inefficiency in online sportsbooks, International Journal of Forecasting, 39:3, 2023, pp. 1413-1423.
+
+Correction study: Cartlidge, J., Clegg, L., Not feeling the buzz: Correction study of mispricing and inefficiency in online sportsbooks, 2024, International Journal of Forecasting.
 
 ## Introduction
 
