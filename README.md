@@ -1,63 +1,57 @@
-# Predictive-Analytics-2025
+# Predictive-Analytics-2025  
 
-## Article Selection
+## Article Selection  
 
-Original article: Ramirez, P., Reade, J.J., Singleton, C., Betting on a buzz: Mispricing and inefficiency in online sportsbooks, International Journal of Forecasting, 39:3, 2023, pp. 1413-1423.
+- **Original Article**: Ramirez, P., Reade, J.J., Singleton, C., *Betting on a Buzz: Mispricing and Inefficiency in Online Sportsbooks*, *International Journal of Forecasting*, 39(3), 2023, pp. 1413-1423.  
+- **Correction Study**: Cartlidge, J., Clegg, L., *Not Feeling the Buzz: Correction Study of Mispricing and Inefficiency in Online Sportsbooks*, 2024, *International Journal of Forecasting*.  
 
-Correction study: Cartlidge, J., Clegg, L., Not feeling the buzz: Correction study of mispricing and inefficiency in online sportsbooks, 2024, International Journal of Forecasting.
+## Introduction  
 
-## Introduction
+This project investigates inefficiencies in the tennis betting market through the lens of crowd-sourced data, with a focus on replicating and extending the findings from two influential studies. The original article by Ramirez et al. (2023) introduced the Wikipedia Relative Buzz Factor (WikiBuzz), a novel metric based on pre-match Wikipedia page views. The study demonstrated that WikiBuzz could predict systematic mispricing in bookmakers' odds, achieving an impressive return on investment (ROI) of up to 29.38%. However, the correction study by Clegg & Cartlidge (2024) identified data quality issues, specifically a single erroneous bet, which significantly altered the reported profitability. Their findings emphasized the importance of replication studies and highlighted how market inefficiencies evolve as bookmakers refine their odds-setting methodologies.  
 
-This project examines inefficiencies in the tennis betting market using crowd-sourced data. Building on the work of Ramirez et al. (2023) and Clegg & Cartlidge (2024), we replicate and extend their findings, focusing on the predictive power of the Wikipedia Relative Buzz Factor (WikiBuzz). The original study demonstrated that WikiBuzz—a metric based on pre-match Wikipedia page views—could predict systematic mispricing in bookmakers' odds, achieving a remarkable return on investment (ROI) of up to 29.38%. However, a correction study by Clegg & Cartlidge (2024) revealed data issues that reduced profitability, highlighting the transient nature of market inefficiencies as bookmakers refine their odds-setting processes.
+Building on these studies, our project extends the correction analysis using Lasso regression for variable selection and regularization. This methodology systematically evaluates additional predictors and identifies the most impactful variables while minimizing the risk of overfitting. Leveraging third-party tennis match data, we aim to provide deeper insights into predictive modeling in betting markets and contribute to the growing discourse on the value of reproducible research in sports forecasting.  
 
-Our work seeks to enhance the correction analysis by incorporating Lasso regression for variable selection and regularization. This methodology allows us to systematically evaluate additional predictors and identify the most impactful variables while minimizing overfitting. Using third-party tennis match data, we aim to contribute new insights into predictive modeling in betting markets and further the discussion on the importance of replication studies in sports forecasting research.
+## Python Libraries with Versions  
 
-## Python Libraries with versions
+### Shared Libraries  
 
-### Shared Libraries
+- `FuncFormatter` from `matplotlib.ticker` 3.8.3  
+- `IV2SLS` from `linearmodels` 6.1  
+- `matplotlib.ticker` 3.8.3  
+- `defaultdict` from `collections` 3.4  
+- `pandas` 2.2.1  
+- `numpy` 1.26.4  
+- `statsmodels.api` 0.14.4  
+- `statsmodels.formula.api` 0.14.4  
+- `matplotlib.dates` 3.8.3  
 
-- FuncFormatter from matplotlib.ticker 3.8.3
-- IV2SLS from linearmodels 6.1
-- matplotlib.ticker 3.8.3
-- defaultdict collections 3.4
-- pandas  2.2.1
-- numpy 1.26.4
-- statsmodels.api 0.14.4
-- statsmodels.formula.api 0.14.4
-- matplotlib.dates 3.8.3
+### Libraries the Authors Used  
 
-### Libraries the authors used
+- `seaborn` 0.13.2  
+- `fixedeffect.fe`  
 
-- seaborn 0.13.2
-- fixedeffect.fe
+### Libraries We Added  
 
-### Libraries we added
+- `combinations` from `itertools` 10.5.0  
+- `matplotlib.pyplot` 3.8.3  
+- `train_test_split` from `sklearn.model_selection` 1.7  
+- `LassoCV` from `sklearn.linear_model` 1.7  
+- `StandardScaler` from `sklearn.preprocessing` 1.7  
 
-- combinations from itertools 10.5.0
-- matplotlib.pyplot 3.8.3
-- train_test_split from sklearn.model_selection 1.7
-- LassoCV from sklearn.linear_model 1.7
-- StandardScaler from sklearn.preprocessing 1.7
+## Extension with Lasso  
 
-## Extension with LASSO
-  
-### Feature Engineering
+### Feature Engineering  
 
-b365_ratio = b365w/b365l
+python
+b365_ratio = b365w / b365l  
+avg_ratio = avgw / avgl  
+b365_margin = b365w - b365l  
+wiki_trend_diff_w = wiki_mean7_w - wiki_mean30_w  
+wiki_diff_yesterday_w = wiki_yesterday_w - wiki_twodays_w  
+elo_diff = elo_pi_hat - elopredict  
+set_diff = wsets - lsets  
+outcome = 1 for winners; 0 for losers  
 
-avg_ratio = avgw/avgl
-
-b365_margin = b365w-b365l
-
-wiki_trend_diff_w = wiki_mean7_w - wiki_mean30_w
-
-wiki_diff_yesterday_w = wiki_yesterday_w - wiki_twodays_w
-
-elo_diff = elo_pi_hat - elopredict
-
-set_diff = wsets - lsets
-
-outcome = 1 for winners ; 0 for losers
 
 ### Candidate Regressors
 
