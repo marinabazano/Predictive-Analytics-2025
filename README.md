@@ -13,6 +13,8 @@ Building on these studies, our project extends the correction analysis using Las
 
 ## Python Libraries with Versions  
 
+To install the libraries we provided a requierements.txt just execute on your terminal the following command: pip install -r requirements.txt
+
 ### Shared Libraries  
 
 - `FuncFormatter` from `matplotlib.ticker` 3.8.3  
